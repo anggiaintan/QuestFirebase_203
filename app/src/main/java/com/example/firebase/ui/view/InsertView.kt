@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -40,6 +41,7 @@ import com.example.firebase.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@OptIn (ExperimentalMaterial3Api::class)
 @Composable
 fun InsertMhsView (
     onBack: () -> Unit,
@@ -123,7 +125,7 @@ fun InsertBodyMhs (
     onValueChange: (MahasiswaEvent) -> Unit,
     uiState: InsertUiState,
     onClick: () -> Unit,
-    homeUiState: HomeUiState
+    homeUiState: FormState
 ) {
     Column (
         modifier = modifier.fillMaxWidth(),
@@ -206,9 +208,9 @@ fun FormMahasiswa (
                 horizontalArrangement = Arrangement.Start
             ) {
                 RadioButton(
-                    selected = mahasiswaEvent.jenisKelamin == jk,
+                    selected = mahasiswaEvent.jenis_kelamin == jk,
                     onClick = {
-                        onValueChange (mahasiswaEvent.copy(jenisKelamin = jk))
+                        onValueChange (mahasiswaEvent.copy(jenis_kelamin = jk))
                     },
                 )
                 Text (
@@ -218,7 +220,7 @@ fun FormMahasiswa (
         }
     }
         Text (
-        text = errorState.jenisKelamin ?: "",
+        text = errorState.jenis_kelamin ?: "",
         color = Color.Red
     )
 OutlinedTextField(

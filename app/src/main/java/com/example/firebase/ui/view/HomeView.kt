@@ -99,7 +99,7 @@ fun HomeStatus (
                         onDetailClick(it.nim)
                     },
                     onDeleteClick = {
-                        viewModel.deleteMahasiswa(it)
+                        onDeleteClick (it)
                     }
                 )
         is HomeUiState.Error -> OnError(retryAction = retryAction, modifier = modifier.fillMaxSize(),

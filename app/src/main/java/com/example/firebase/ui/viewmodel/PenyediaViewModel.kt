@@ -12,7 +12,7 @@ import com.example.firebase.model.Mahasiswa
 object PenyediaViewModel {
     val Factory = viewModelFactory {
         initializer { HomeViewModel(aplikasiMahasiswa().container.mahasiswaRepository) }
-        initializer { InsertViewModel (Mahasiswa().container.mahasiswaRepository) }
+        initializer { InsertViewModel (aplikasiMahasiswa().container.mahasiswaRepository) }
     }
 }
 

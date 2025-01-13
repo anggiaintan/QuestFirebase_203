@@ -13,5 +13,5 @@ data class Mahasiswa(
 {
     constructor(
 
-    ):this(nim = "", nama = "", alamat = "", jenis_kelamin = "", kelas = "", angkatan = "")
+    ):this("", "", "", "", "", "")
 }
