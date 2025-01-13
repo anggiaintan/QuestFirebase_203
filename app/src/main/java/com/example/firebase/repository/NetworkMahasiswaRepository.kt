@@ -31,7 +31,7 @@ class NetworkMahasiswaRepository (
 
     override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
         try {
-            firestore.collection("Mahasiswa").add(mahasiswa).await()
+            firestore.collection("mahasiswa").add(mahasiswa).await()
         } catch (e: Exception) {
             throw Exception("Gagal menambahkan data mahasiswa: ${e.message}")
         }
@@ -39,7 +39,7 @@ class NetworkMahasiswaRepository (
 
     override suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa) {
         try {
-            firestore.collection("Mahasiswa")
+            firestore.collection("mahasiswa")
                 .document(mahasiswa.nim)
                 .set(mahasiswa)
                 .await()
@@ -50,7 +50,7 @@ class NetworkMahasiswaRepository (
 
     override suspend fun deleteMahasiswa(nim: String) {
         try {
-            firestore.collection("Mahasiswa")
+            firestore.collection("mahasiswa")
              //   .document(mahasiswa.nim)
              //   .delete()
              //   .await()
