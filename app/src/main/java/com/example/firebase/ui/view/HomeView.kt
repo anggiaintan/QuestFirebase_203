@@ -90,6 +90,7 @@ fun HomeStatus (
     onDeleteClick: (String) -> Unit = {},
     onDetailClick: (String) -> Unit
 ) {
+
     when (homeUiState) {
         is HomeUiState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
         is HomeUiState.Success ->
@@ -191,7 +192,7 @@ fun MhsCard (
                 )
             }
             Text (
-                text = mahasiswa.kelas,
+                text = mahasiswa.judul_skripsi,
                 style = MaterialTheme.typography.titleMedium
             )
             Text (
